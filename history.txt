@@ -1,0 +1,158 @@
+    1  cd /mnt/C:/Users/Christelle/Documents/devops_keyce
+    2  cd /mnt/C:/Users/Christelle/Documents
+    3  cd /C:/Users/Christelle/Documents
+    4  cd /mnt/c/Users/Christelle/Documents/devops_keyce
+    5  cd jenkins-install
+    6  sudo docker-compose up
+    7  sudo docker compose up
+    8  docker-compose version
+    9  sudo install snap install docker
+   10  cd../
+   11  cd..
+   12  cd ..
+   13  nano docker_install.sh
+   14  chmod +x docker_install.sh
+   15  bash docker_install.sh
+   16  docker --version
+   17  sudo  snap install docker+
+   18  sudo  snap install docker
+   19  cd devops_keyce
+   20  jenkins-install
+   21  cd /mnt/c/Users/Christelle/Documents/devops_keyce
+   22  cd jenkins-install
+   23  sudo docker compose up
+   24  ifconfig
+   25  sudo apt install net-tools
+   26  ifconfig
+   27  mkdir webapp
+   28  cd webapp
+   29  cd ..
+   30  ls
+   31  christelle
+   32  ls
+   33  docker image
+   34  docker run --name cassandra-container -d cassandra:latest
+   35  cd Devops/"TP docker"
+   36  cd Devops/devops_keyce/"TP docker"
+   37  sudo sh docker_install.sh
+   38  cd ..
+   39  mkdir webapp
+   40  cd webapp
+   41  nano Dockerfile
+   42  ls Dockerfile
+   43  nano Dockerfile
+   44  sudo docker build -t webapp:v1 .
+   45  sudo git clone https://github.com/Nchris1/christelle_webapp.git
+   46  sudo docker build -t webapp:v1 .
+   47  docker images
+   48  sudo docker images
+   49  sudo docker run --name webapp -d -p 80:10 webapp:2026
+   50  sudo docker run --name webapp -d -p 80:10 webapp:v1
+   51  sudo docker run --name christelle_webapp -d -p 80:10 webapp:v1
+   52  sudo docker run --name webapp -d -p 80:10 christelle_webapp:v1
+   53  sudo docker run --name webapp -d -p 80:80 webapp:v1
+   54  sudo docker run --name webapp -d -p 80:10 webapp:v1
+   55  docker rm webapp
+   56  sudo stop webapp
+   57  sudo docker stop webapp
+   58  sudo docker rm webapp
+   59  sudo docker run --name webapp -d -p 80:80 webapp:v1
+   60  docker ps
+   61  RUN git clone https://github.com/Nchris1/christelle_webapp.git /var/www/html/
+   62  sudo git clone https://github.com/Nchris1/christelle_webapp.git /var/www/html/
+   63  sudo docker build -t webapp:v2 .
+   64  sudo docker stop webapp
+   65  sudo docker rm webapp
+   66  sudo docker run --name webapp -d -p 80:80 webapp:v2
+   67  curl localhost
+   68  sudo docker exec -it webapp ls /var/www/html
+   69  mkdir Devops
+   70  cd ./Devops
+   71  git
+   72  sudo apt install git
+   73  sudo git clone https://github.com/Legeni07/devops_keyce.git
+   74  cd ./TP Docker
+   75  cd "TP Docker
+   76  cd "TP Docker"
+   77  cd "TP DOCKER.md"
+   78  cd "TP DOCKER"
+   79  cd webapp
+   80  cp blog_christelle.html webapp/index.html
+   81  cd..
+   82  cd ..
+   83  cd Devops/devops_keyce/webapp
+   84  cd Devops/devops_keyce
+   85  cd webapp
+   86  docker ps
+   87  docker logs webapp
+   88  mkdir webapp
+   89  sudo mkdir webapp
+   90  cd webapp
+   91  docker logs webapp
+   92  sudo docker ps
+   93  sudo docker logs webapp
+   94  sudo docker images
+   95  sudo docker build -t webapp:v1 .
+   96  sudo docker build -t webapp:v2 .
+   97  cd ..
+   98  cd webapp
+   99  sudo docker images
+  100  sudo docker logs webapp
+  101  cd ..
+  102  cd devops_keyce
+  103  cd webapp
+  104  nano Dockerfile
+  105  sudo nano Dockerfile
+  106  sudo docker logs webapp
+  107  sudo docker images
+  108  sudo docker build -t webapp:v1 .
+  109  sudo docker images
+  110  docker run --name webapp -d -p 80:80 webapp:v1
+  111  sudo docker ps
+  112  ls
+  113  sudo docker stop webapp
+  114  sudo docker rm webapp
+  115  sudo nano index.html
+  116  sudo nano Dockerfile
+  117  ls
+  118  sudo docker build -t webapp:v1 .
+  119  sudo docker run --name webapp -d -p 80:80 webapp:v1
+  120  cd Devops/devops_keyce/webapp
+  121  cd ..
+  122  sudo docker run -it --name B3_jour ubuntu
+  123  sudo docker run -it --name B3_soir ubuntu
+  124  sudo docker start B3_jour
+  125  sudo docker start B3_soir
+  126  sudo docker ps
+  127  sudo docker network create -d bridge mon_reseau
+  128  sudo docker network connect mon_reseau B3_jour
+  129  sudo docker network connect mon_reseau B3_soir
+  130  sudo docker network inspect mon_reseau
+  131  sudo docker volume create mon_volume_temporaire
+  132  sudo docker stop B3_jour B3_soir
+  133  sudo docker rm B3_jour B3_soir
+  134  sudo docker run -d --name B3_jour -v mon_volume_temporaire:/tmp ubuntu sleep infinity
+  135  sudo docker run -d --name B3_soir -v mon_volume_temporaire:/tmp ubuntu sleep infinity
+  136  sudo docker exec -it B3_jour bash
+  137  echo "Bonjour" > /tmp/fichier.txt
+  138  exit
+  139  cd Devops/devops_keyce
+  140  sudo docker exec -it B3_soir bash
+  141  cat /tmp/fichier.txt
+  142  exit
+  143  mkdir monprojet
+  144  cd monprojet
+  145  nano app.py
+  146  sudo nano app.py
+  147  sudo nano requirements.txt
+  148  sudo nano Dockerfile
+  149  docker build -t christelle-flask-app .
+  150  http://localhost:5000
+  151  docker images
+  152  sudo docker images
+  153  docker build -t christelle-flask-app .
+  154  sudo docker run -p 5000:5000 christelle-flask-app
+  155  sudo docker login
+  156  sudo docker tag christelle-flask-app chrisnto/christelle-flask-app
+  157  docker push chrisnto/christelle-flask-app
+  158  history > history.txt
