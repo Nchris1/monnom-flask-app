@@ -17,8 +17,9 @@ pipeline {
 
         stage('Publication') {
             steps {
-                sh 'docker tag christelle-flask-app Nchris1/christelle-flask-app'
-                sh 'docker push Nchris1/christelle-flask-app'
+ sh 'docker login -u chrisnto -p Christelle'
+                sh 'docker tag christelle-flask-app chrisnto/christelle-flask-app'
+                sh 'docker push chrisnto/christelle-flask-app'
             }
         }
     }
