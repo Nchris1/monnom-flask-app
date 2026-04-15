@@ -1,0 +1,226 @@
+0s
+ => => sha256:79d5bd8a8d262418bf22e70 235.93MB / 235.93MB  1360.3s
+ => => sha256:081ccf923272c30c6072c6ff1617 6.10MB / 6.10MB  629.6s
+ => => extracting sha256:795dbedde24d2c72dafd2b71fe36643552e  3.1s
+ => => extracting sha256:89d573bf42b377ce6a5a0451c1538884968  1.2s
+ => => sha256:c9723aa529b03c40e66d0aee92 20.37MB / 20.37MB  752.9s
+ => => extracting sha256:26dfe2fac1c486e9aaf41d1028ed30be2c4  4.4s
+ => => sha256:91c91c91f1d23f4edf4280a8fe935f14 250B / 250B  630.8s
+ => => extracting sha256:79d5bd8a8d262418bf22e705535ce38c67  11.7s
+ => => extracting sha256:081ccf923272c30c6072c6ff1617d9072e0  0.5s
+ => => extracting sha256:c9723aa529b03c40e66d0aee927a410b471  1.4s
+ => => extracting sha256:91c91c91f1d23f4edf4280a8fe935f14340  0.0s
+ => [internal] load build context                             0.0s
+ => => transferring context: 307B                             0.0s
+ => [auth] library/python:pull token for registry-1.docker.i  0.0s
+ => [2/5] WORKDIR /app                                        0.7s
+ => [3/5] COPY app.py /app/                                   0.1s
+ => [4/5] COPY requirements.txt /app/                         0.1s
+ => [5/5] RUN pip install -r requirements.txt                14.6s
+ => exporting to image                                        0.3s
+ => => exporting layers                                       0.3s
+ => => writing image sha256:4a6b38a118e8a92c515641c39d6e9159  0.0s
+ => => naming to docker.io/library/christelle-flask-app       0.0s
+christelle@DESKTOP-5MEIAP6:~/monprojet$ http://localhost:5000
+bash: http://localhost:5000: No such file or directory
+christelle@DESKTOP-5MEIAP6:~/monprojet$ docker images
+                                               i Info →   U  In Use
+IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
+alpinehelloworld:latest
+                   54d5e152b6bf         78MB             0B    U   
+christelle-flask-app:latest
+                   4a6b38a118e8        1.1GB             0B        
+jenkins/jenkins:lts
+                   3e88dcb3d033        487MB             0B    U   
+mysql:8.0          a123df39bc7c        786MB             0B        
+phpmyadmin:latest
+                   d4a57c6dcd75        575MB             0B        
+ubuntu:latest      b28307c40a80       78.1MB             0B        
+webapp:v1          362509c5ad3c        209MB             0B    U   
+wordpress:latest   69d95d3385ad        752MB             0B        
+christelle@DESKTOP-5MEIAP6:~/monprojet$ sudo docker images
+[sudo] password for christelle: 
+                                               i Info →   U  In Use
+IMAGE              ID             DISK USAGE   CONTENT SIZE   EXTRA
+alpinehelloworld:latest
+                   54d5e152b6bf         78MB             0B    U   
+christelle-flask-app:latest
+                   4a6b38a118e8        1.1GB             0B        
+jenkins/jenkins:lts
+                   3e88dcb3d033        487MB             0B    U   
+mysql:8.0          a123df39bc7c        786MB             0B        
+phpmyadmin:latest
+                   d4a57c6dcd75        575MB             0B        
+ubuntu:latest      b28307c40a80       78.1MB             0B        
+webapp:v1          362509c5ad3c        209MB             0B    U   
+wordpress:latest   69d95d3385ad        752MB             0B        
+christelle@DESKTOP-5MEIAP6:~/monprojet$ docker build -t christelle-flask-app .
+[+] Building 2.5s (11/11) FINISHED                  docker:default
+ => [internal] load build definition from Dockerfile          0.0s
+ => => transferring dockerfile: 179B                          0.0s
+ => [internal] load metadata for docker.io/library/python:3.  2.3s
+ => [auth] library/python:pull token for registry-1.docker.i  0.0s
+ => [internal] load .dockerignore                             0.0s
+ => => transferring context: 2B                               0.0s
+ => [1/5] FROM docker.io/library/python:3.9@sha256:da5aee296  0.0s
+ => [internal] load build context                             0.0s
+ => => transferring context: 63B                              0.0s
+ => CACHED [2/5] WORKDIR /app                                 0.0s
+ => CACHED [3/5] COPY app.py /app/                            0.0s
+ => CACHED [4/5] COPY requirements.txt /app/                  0.0s
+ => CACHED [5/5] RUN pip install -r requirements.txt          0.0s
+ => exporting to image                                        0.0s
+ => => exporting layers                                       0.0s
+ => => writing image sha256:4a6b38a118e8a92c515641c39d6e9159  0.0s
+ => => naming to docker.io/library/christelle-flask-app       0.0s
+christelle@DESKTOP-5MEIAP6:~/monprojet$ sudo docker run -p 5000:500
+0 christelle-flask-app
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.17.0.4:5000
+Press CTRL+C to quit
+172.17.0.1 - - [15/Apr/2026 12:08:35] "GET / HTTP/1.1" 200 -
+172.17.0.1 - - [15/Apr/2026 12:08:35] "GET /favicon.ico HTTP/1.1" 404 -
+^Cchristelle@DESKTOP-5MEIAP6:~/monprojet$ sudo docker login
+
+USING WEB-BASED LOGIN
+
+i Info → To sign in with credentials on the command line, use 'docker login -u <username>'
+         
+
+Your one-time device confirmation code is: TKHM-TXKR
+Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+
+Waiting for authentication in the browser…
+
+
+
+
+WARNING! Your credentials are stored unencrypted in '/root/.docker/config.json'.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/go/credential-store/
+
+Login Succeeded
+christelle@DESKTOP-5MEIAP6:~/monprojet$ sudo docker tag christelle-flask-app chrisnto/christelle-flask-app
+christelle@DESKTOP-5MEIAP6:~/monprojet$ docker push chrisnto/christ
+elle-flask-app
+Using default tag: latest
+The push refers to repository [docker.io/chrisnto/christelle-flask-app]
+7cb4dc389f8a: Pushed 
+4d17c9a17063: Pushed 
+0cdae0e9bc3f: Pushed 
+1550f0acb304: Pushed 
+4e92062d58c4: Mounted from library/python 
+05c88577d350: Mounted from library/python 
+0b38a99061e1: Mounted from library/python 
+713ad1f34d94: Mounted from library/python 
+c041ff8d6c73: Mounted from library/python 
+fbde375eafc7: Mounted from library/python 
+f2522c6ed78b: Mounted from library/python 
+latest: digest: sha256:cfc86af572c627275284984d547821467efa36d0fd976cfb4ec08572b16e15be size: 2627
+christelle@DESKTOP-5MEIAP6:~/monprojet$ history > history.txt
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/christelle/monprojet/.git/
+christelle@DESKTOP-5MEIAP6:~/monprojet$ ls
+Dockerfile  app.py  history.txt  requirements.txt
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git add .
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git commit -m "TP1 : application Flask dockerisée"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <christelle@DESKTOP-5MEIAP6.localdomain>) not allowed
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git branch -M main
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote add origin https://github.com/Nchris1/monnom-flask-app.git
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/Nchris1/monnom-flask-app.git'
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote add origin https://github.com/Nchris1/monprojet.git
+error: remote origin already exists.
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/Nchris1/monnom-flask-app.git'
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git init
+Reinitialized existing Git repository in /home/christelle/monprojet/.git/
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git init
+Reinitialized existing Git repository in /home/christelle/monprojet/.git/
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote add origin https://github.com/Nchris1/monprojet.git
+error: remote origin already exists.
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/Nchris1/monnom-flask-app.git'
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git init
+Reinitialized existing Git repository in /home/christelle/monprojet/.git/
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git init
+Reinitialized existing Git repository in /home/christelle/monprojet/.git/
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git add .
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git commit -m "TP1 : application Flask dockerisée"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <christelle@DESKTOP-5MEIAP6.localdomain>) not allowed
+christelle@DESKTOP-5MEIAP6:~/monprojet$  git config --global user.email "christellentonga1@gmail.com"
+christelle@DESKTOP-5MEIAP6:~/monprojet$  git config --global user.name "Nchris1"
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git branch -M main
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote add origin https://github.com/Nchris1/monnom-flask-app.git
+error: remote origin already exists.
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/Nchris1/monnom-flask-app.git'
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote add origin https://github.com/Nchris1/monnom-flask-app.git
+error: remote origin already exists.
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git add .
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git commit -m "TP1 : application Flask dockerisée"
+[main (root-commit) 784900c] TP1 : application Flask dockerisée
+ 4 files changed, 178 insertions(+)
+ create mode 100644 Dockerfile
+ create mode 100644 app.py
+ create mode 100644 history.txt
+ create mode 100644 requirements.txt
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote remove origin
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git remote add origin https://github.com/Nchris1/monnom-flask-app.git
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git branch
+* main
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git push -u origin main
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (6/6), 1.89 KiB | 1.89 MiB/s, done.
+Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Nchris1/monnom-flask-app.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+christelle@DESKTOP-5MEIAP6:~/monprojet$ git push -u origin main
+branch 'main' set up to track 'origin/main'.
+Everything up-to-date
