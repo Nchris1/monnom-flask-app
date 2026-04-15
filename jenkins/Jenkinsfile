@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clonage') {
             steps {
-                git 'https://github.com/Nchris1/monnom-flask-app.git'
+                git branch: 'main', url: 'https://github.com/Nchris1/monnom-flask-app.git'
             }
         }
 
@@ -15,10 +15,10 @@ pipeline {
             }
         }
 
-        stage('Push DockerHub') {
+        stage('Publication') {
             steps {
-                sh 'docker tag christelle-flask-app chrisnto/christelle-flask-app'
-                sh 'docker push chrisnto/christelle-flask-app'
+                sh 'docker tag christelle-flask-app Nchris1/christelle-flask-app'
+                sh 'docker push Nchris1/christelle-flask-app'
             }
         }
     }
