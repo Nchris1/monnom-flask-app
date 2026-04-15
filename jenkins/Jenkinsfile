@@ -1,0 +1,25 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clonage') {
+            steps {
+                git 'https://github.com/TON_USERNAME/TON_REPO.git'
+            }
+        }
+
+        stage('Build Image') {
+            steps {
+                sh 'docker build -t christelle-flask-app .'
+            }
+        }
+
+        stage('Push DockerHub') {
+            steps {
+                sh 'docker tag christelle-flask-app tonusername/christelle-flask-app'
+                sh 'docker push tonusername/christelle-flask-app'
+            }
+        }
+    }
+}
